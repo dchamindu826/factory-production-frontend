@@ -1,0 +1,580 @@
+/* src/styles/index.css */
+
+/* ------------------------- */
+/* BASE & GLOBAL STYLES      */
+/* ------------------------- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------- */
+/* APP LAYOUT STYLES         */
+/* ------------------------- */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative; /* Needed for fixed sidebar */
+  overflow-x: hidden; /* Prevent horizontal scroll if something overflows */
+}
+
+.main-content {
+  flex-grow: 1;
+  background-color: #ecf0f1;
+  transition: margin-left 0.3s ease-in-out;
+  /* Mobile First: Default margin is 0 */
+  margin-left: 0;
+  width: 100%; /* Ensure it takes full width initially */
+}
+
+.page-content-area {
+  padding: 25px;
+}
+
+.page-header {
+  font-size: 1.8em;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  border-bottom: 2px solid #bdc3c7;
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
+/* ------------------------- */
+/* NAVBAR STYLES             */
+/* ------------------------- */
+.app-navbar {
+  background-color: #ffffff;
+  height: 65px;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  position: sticky; /* Keep navbar at the top */
+  top: 0;
+  z-index: 1010; /* Above content, potentially below sidebar overlay */
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-toggle-button { /* Hamburger button */
+  display: none; /* Hidden by default on larger screens */
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  margin-right: 15px;
+  padding: 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  height: 35px;
+  margin-right: 10px;
+}
+
+.brand-text {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.navbar-center { /* For centering title if needed */ }
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.user-icon {
+  font-size: 1.4em;
+  margin-right: 8px;
+  color: #555;
+  line-height: 1;
+}
+
+.user-name {
+  font-size: 0.95em;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap; /* Prevent username from wrapping */
+}
+
+.logout-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  margin-left: 20px; /* Spacing from username */
+  white-space: nowrap;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+
+/* ------------------------- */
+/* SIDEBAR STYLES            */
+/* ------------------------- */
+.app-sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed; /* Fixed position */
+  top: 0;
+  /* Mobile First: Default state is hidden off-screen */
+  left: -260px; /* Hidden by default */
+  z-index: 1020; /* Above navbar if it overlays */
+  transition: left 0.3s ease-in-out;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+/* Class added by JS when sidebar should be open */
+.app-sidebar.open {
+  left: 0; /* Slide in */
+}
+
+.sidebar-header {
+  padding: 20px 25px;        /* <<<--- මේ padding එක තියෙන්න ඕන */
+  min-height: 65px;        /* <<<--- Navbar එකේ උසට සමාන අවම උසක් දෙමු */
+  display: flex;           /* <<<--- මේකත් වැදගත් */
+  align-items: center;     /* <<<--- මේකත් වැදගත් */
+  justify-content: center;
+  border-bottom: 1px solid #34495e;
+  position: relative;
+  flex-shrink: 0; /* <<<--- Header එක shrink නොවී ඉන්න */
+}
+
+.sidebar-logo {
+  height: 40px;
+  margin-right: 10px; /* Add space if logo and title are together */
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 1.6em;
+  font-weight: 600;
+  color: #ffffff;
+  flex-grow: 1; /* Allow title to take space */
+  text-align: center; /* Re-center if needed */
+}
+
+/* Sidebar Close Button (for mobile) */
+.sidebar-close-button {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust vertical centering */
+  right: 15px; /* Position on the right */
+  background: none;
+  border: none;
+  color: #bdc3c7;
+  font-size: 24px;
+  line-height: 1;
+  padding: 5px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sidebar-close-button:hover {
+  color: #ffffff;
+}
+
+
+.sidebar-nav {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-top: 15px;
+}
+
+.sidebar-nav ul {
+  list-style-type: none;
+  padding: 0 15px;
+  margin: 0;
+}
+
+.sidebar-nav ul li a {
+  display: flex;
+  align-items: center;
+  color: #bdc3c7;
+  text-decoration: none;
+  padding: 14px 15px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.sidebar-nav ul li a .nav-icon {
+  margin-right: 12px;
+  font-size: 1.2em;
+  width: 24px;
+  text-align: center;
+  display: inline-block;
+}
+
+.sidebar-nav ul li a:hover {
+  background-color: #34495e;
+  color: #ffffff;
+}
+
+.sidebar-nav ul li a.active {
+  background-color: #3498db;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sidebar-nav ul li a.active .nav-icon { /* color: #ffffff; */ }
+
+.sidebar-footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #7f8c8d;
+  border-top: 1px solid #34495e;
+}
+
+/* ------------------------- */
+/* COMMON COMPONENT STYLES   */
+/* ------------------------- */
+.card {
+  background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); padding: 20px; margin-bottom: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #e0e0e0;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08); }
+.card h3 { margin-top: 0; color: #3498db; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
+
+/* ------------------------- */
+/* FORM STYLES               */
+/* ------------------------- */
+.form-container { background-color: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); margin-bottom: 30px; border: 1px solid #e9ecef; }
+.form-container h2 { margin-top: 0; margin-bottom: 25px; color: #34495e; border-bottom: 1px solid #dee2e6; padding-bottom: 10px; font-size: 1.5em; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #495057; font-size: 0.9em; }
+.form-group input[type="text"], .form-group input[type="number"], .form-group input[type="date"], .form-group select, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid #ced4da; border-radius: 4px; box-sizing: border-box; font-size: 0.95em; transition: border-color 0.2s ease, box-shadow 0.2s ease; background-color: #fff; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #80bdff; outline: 0; box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+.form-group input.readonly-field { background-color: #e9ecef; color: #495057; cursor: not-allowed; border: 1px solid #ced4da; }
+.form-actions { margin-top: 30px; text-align: right; padding-top: 20px; border-top: 1px solid #e9ecef; }
+.submit-button, .action-button { background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1em; font-weight: 500; transition: background-color 0.2s ease; margin-left: 10px; }
+.submit-button:first-child, .action-button:first-child { margin-left: 0; }
+.submit-button:hover, .action-button:hover { background-color: #218838; }
+.cancel-button { background-color: #dc3545; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1em; font-weight: 500; margin-right: 10px; transition: background-color 0.2s ease; }
+.cancel-button:hover { background-color: #c82333; }
+
+/* Alert Messages */
+.alert { padding: 10px 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; font-size: 0.95em; text-align: left; }
+.alert-success { color: #155724; background-color: #d4edda; border-color: #c3e6cb; }
+.alert-danger { color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; }
+
+
+/* ------------------------- */
+/* DASHBOARD SPECIFIC STYLES */
+/* ------------------------- */
+.summary-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.summary-card { background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 20px; display: flex; align-items: center; gap: 15px; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; border-left: 4px solid #3498db; }
+.summary-card:hover { transform: translateY(-4px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+.card-icon { font-size: 2.2em; color: #3498db; background-color: #eaf2f8; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.card-content h4 { margin-top: 0; margin-bottom: 5px; font-size: 1em; color: #555; font-weight: 600; }
+.card-value { font-size: 1.8em; font-weight: 700; color: #2c3e50; margin-bottom: 5px; line-height: 1.2; }
+.card-unit { font-size: 0.6em; color: #7f8c8d; margin-left: 5px; font-weight: 500; text-transform: uppercase; }
+.card-details-link { font-size: 0.85em; color: #3498db; font-weight: 500; }
+.dashboard-actions { margin-bottom: 30px; } .dashboard-actions h3 { }
+.dashboard-charts-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
+.chart-placeholder { padding: 20px; text-align: center; color: #7f8c8d; min-height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; } .chart-placeholder h3 { color: #34495e; }
+.chart-container { padding: 20px; margin-bottom: 20px; }
+.chart-container h3 { margin-top: 0; margin-bottom: 20px; text-align: center; color: #2c3e50; border-bottom: none; font-size: 1.2em; }
+.timeframe-selector { display: flex; justify-content: center; margin-bottom: 20px; }
+.timeframe-selector button { background-color: #e9ecef; border: 1px solid #ced4da; padding: 8px 15px; margin: 0 5px; cursor: pointer; border-radius: 4px; transition: background-color 0.2s ease, border-color 0.2s ease; font-size: 0.9em; }
+.timeframe-selector button:hover { background-color: #dee2e6; border-color: #b8c0c7; }
+.timeframe-selector button.active { background-color: #007bff; color: white; border-color: #007bff; }
+
+
+/* --------------------------------------- */
+/* SUBCONTRACT PRICE MANAGEMENT TABLE STYLES */
+/* --------------------------------------- */
+.price-management-table-container { margin-top: 40px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+.price-management-table-container h3 { margin-top: 0; margin-bottom: 20px; color: #34495e; font-size: 1.3em; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.price-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+.price-table th, .price-table td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; vertical-align: middle; }
+.price-table th { background-color: #f2f2f2; font-weight: 600; color: #333; }
+.price-table td { background-color: #fff; } .price-table tbody tr:nth-child(even) td { background-color: #f9f9f9; } .price-table tbody tr:hover td { background-color: #f1f1f1; }
+.price-input-editable { width: 80px; padding: 6px; border: 1px solid #ccc; border-radius: 4px; text-align: right; }
+.price-table-btn { padding: 6px 10px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em; margin-right: 5px; color: white; } .price-table-btn:last-child { margin-right: 0; }
+.price-table-btn.edit-btn { background-color: #3498db; } .price-table-btn.edit-btn:hover { background-color: #2980b9; }
+.price-table-btn.save-btn { background-color: #2ecc71; } .price-table-btn.save-btn:hover { background-color: #27ae60; }
+.price-table-btn.cancel-btn { background-color: #e74c3c; } .price-table-btn.cancel-btn:hover { background-color: #c0392b; }
+
+
+/* ------------------------- */
+/* REPORTS PAGE STYLES       */
+/* ------------------------- */
+.report-filters { margin-bottom: 30px; padding: 25px; } /* Uses .card */
+.date-range-fields { display: flex; gap: 20px; margin-top: 15px; margin-bottom: 20px; } .date-range-fields .form-group { flex: 1; margin-bottom: 0; }
+.report-actions { margin-top: 20px; text-align: left; padding-top: 15px; border-top: 1px solid #eee; } .report-actions .action-button { margin-right: 10px; } .report-actions .action-button.export-button { background-color: #17a2b8; } .report-actions .action-button.export-button:hover { background-color: #138496; }
+.loading-message { text-align: center; padding: 20px; font-style: italic; color: #555; }
+.report-display-area { margin-top: 20px; padding: 25px; } /* Uses .card */
+.report-display-area h3 { margin-top: 0; margin-bottom: 10px; color: #2c3e50; } .date-range-info { font-size: 0.9em; color: #777; margin-bottom: 15px; }
+.report-table-container { overflow-x: auto; max-width: 100%; }
+.report-display-area table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9em; } .report-display-area th, .report-display-area td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; vertical-align: middle; } .report-display-area th { background-color: #f2f2f2; font-weight: 600; color: #333; position: sticky; top: 0; z-index: 1; } .report-display-area tbody tr:nth-child(even) { background-color: #f9f9f9; } .report-display-area tbody tr:hover { background-color: #f1f1f1; }
+.no-data-message { text-align: center; padding: 30px; color: #777; }
+
+
+/* ------------------------- */
+/* TABLE PLACEHOLDER STYLES  */
+/* ------------------------- */
+.table-placeholder-container { background-color: #ffffff; padding: 25px; border-radius: 8px; margin-top: 30px; } .table-placeholder-container h3 { margin-top: 0; color: #34495e; }
+.table-placeholder-message { text-align: center; padding: 40px 20px; color: #6c757d; border: 2px dashed #dee2e6; border-radius: 6px; background-color: #f8f9fa; }
+
+
+/* ------------------------------ */
+/* LOGIN PAGE STYLES              */
+/* (Included here as requested)   */
+/* ------------------------------ */
+.login-page-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f4f6f8; padding: 20px; }
+.login-form-card { background-color: #ffffff; padding: 30px 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px; text-align: center; }
+.login-form-card h2 { margin-top: 0; margin-bottom: 25px; color: #2c3e50; font-size: 1.6em; }
+.login-form-card .form-group label { display: block; text-align: left; margin-bottom: 6px; font-weight: 600; color: #495057; font-size: 0.9em; }
+.login-form-card .form-group input { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 4px; margin-bottom: 15px; font-size: 1em; }
+.login-form-card .form-group input:focus { border-color: #80bdff; outline: 0; box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+.error-message { color: #e74c3c; margin-bottom: 15px; font-size: 0.9em; text-align: left; }
+.login-button { width: 100%; padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 4px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease; margin-top: 10px; }
+.login-button:hover { background-color: #2980b9; }
+.login-button:disabled { background-color: #a5c9e2; cursor: not-allowed; }
+
+
+/* ------------------------- */
+/* RESPONSIVE STYLES         */
+/* (Media Queries @ 768px)   */
+/* ------------------------- */
+@media (max-width: 768px) {
+  /* ... (Navbar mobile styles: .sidebar-toggle-button display: block; etc.) ... */
+  .sidebar-toggle-button { display: block; }
+
+  /* --- Sidebar Mobile Adjustments --- */
+  .app-sidebar {
+    /* පළල ටිකක් අඩු කරමු, නැත්නම් screen එකෙන් 80% වගේ ගමු */
+    width: 240px; /* Adjust this value if needed, e.g., 220px or 80vw */
+    /* left: -260px; */ /* Default hidden state (from base style) */
+     /* Add overflow-y if content might be long */
+     overflow-y: auto;
+  }
+
+  .app-sidebar.open {
+    left: 0; /* Slide in */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2); /* Open වෙද්දී shadow එකක් දාමු */
+  }
+
+  /* Close button එක හැමවෙලේම පේන්න දාමු open class එකත් එක්ක */
+  .app-sidebar.open .sidebar-close-button {
+      display: block; /* Show close button only when sidebar is open */
+      color: #bdc3c7; /* Ensure color is visible */
+      right: 10px; /* Adjust position slightly if needed */
+      top: 12px;   /* Adjust position slightly if needed */
+  }
+   .sidebar-close-button:hover {
+     color: #ffffff;
+   }
+
+
+  /* --- Main Content Mobile Adjustments --- */
+  .main-content {
+    margin-left: 0; /* Ensure no margin */
+    /* Optional: Add an overlay when sidebar is open */
+    /* position: relative; */ /* Needed for overlay */
+  }
+  /* Example overlay (Optional) */
+  /* .app-sidebar.open + .main-content::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1015; /* Below sidebar, above content * /
+  } */
+
+
+  /* ... (Rest of your mobile styles for forms, tables, etc.) ... */
+  /* Example: */
+   .page-content-area { padding: 10px; }
+   .page-header { font-size: 1.4em; margin-bottom: 15px; }
+
+
+}
+
+/* Desktop Styles (> 768px) */
+@media (min-width: 769px) {
+   /* ... (Desktop styles for sidebar, main-content margin etc. as before) ... */
+   .app-sidebar { left: 0; }
+   .main-content { margin-left: 250px; } /* Adjust 250px if sidebar width changed */
+   .sidebar-toggle-button { display: none; }
+   .sidebar-close-button { display: none; }
+
+  }
+   /* Refined rule: only show close button if sidebar is actually open */
+  .app-sidebar.open .sidebar-close-button {
+      display: block;
+   }
+
+
+  /* Form adjustments for mobile */
+  .form-group input[type="text"], .form-group input[type="number"], .form-group input[type="date"], .form-group select, .form-group textarea { font-size: 1em; }
+  .form-actions { text-align: center; }
+  .submit-button, .action-button, .cancel-button { width: 100%; margin-bottom: 10px; margin-left: 0; margin-right: 0; }
+  .cancel-button { margin-top:0; }
+
+  /* Dashboard cards and charts for mobile */
+  .summary-cards-grid { grid-template-columns: 1fr; }
+  .dashboard-charts-section { grid-template-columns: 1fr; }
+
+  /* Recharts specific adjustments for mobile */
+  .recharts-wrapper { font-size: 0.75em; }
+  .recharts-legend-item { margin-right: 5px !important; }
+  .timeframe-selector button { padding: 6px 10px; font-size: 0.85em; }
+
+  /* Page header and padding */
+  .page-header { font-size: 1.5em; margin-bottom: 20px; }
+  .page-content-area { padding: 15px; }
+
+  /* Price management table mobile */
+  .price-management-table-container { overflow-x: auto; }
+  .price-table th, .price-table td { padding: 8px; font-size: 0.85em; }
+  .price-input-editable { width: 60px; }
+  .price-table-btn { padding: 5px 8px; font-size: 0.8em; margin-bottom: 3px; display: inline-block; }
+
+  /* Reports page mobile */
+  .date-range-fields { flex-direction: column; gap: 15px; }
+  .report-actions .action-button { display: block; width: 100%; margin-bottom: 10px; margin-right: 0; }
+  .report-display-area th, .report-display-area td { padding: 8px; font-size: 0.85em; }
+
+  /* Login Page Mobile Optimizations */
+  .login-form-card {
+    padding: 25px 20px;
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+  }
+  .login-form-card h2 { font-size: 1.4em; margin-bottom: 20px; }
+   .login-form-card .form-group input { padding: 10px; font-size: 0.95em; }
+   .login-button { padding: 11px; font-size: 1em; }
+
+
+/* ----------------------------- */
+/* Desktop Styles (> 768px)      */
+/* Overrides for desktop layout  */
+/* ----------------------------- */
+@media (min-width: 769px) {
+  .app-sidebar {
+    left: 0; /* Sidebar visible by default */
+  }
+  /* We use JS/Class to handle margin now based on Layout.jsx */
+   .main-content {
+     margin-left: 250px; /* Default margin when sidebar is open */
+   }
+   .main-content.sidebar-closed-desktop { /* Class added by JS if sidebar is closed */
+      margin-left: 0;
+   }
+
+
+  /* Hide mobile-specific buttons */
+  .sidebar-toggle-button { /* Hamburger */
+    display: none;
+  }
+  .sidebar-close-button { /* Close button inside sidebar */
+    display: none;
+  }
+
+  /* TEMPORARY DEBUGGING STYLES - REMOVE LATER */
+@media (max-width: 768px) {
+    .app-sidebar.open .sidebar-header {
+        min-height: 60px !important;
+        height: auto !important;
+        padding: 15px !important;
+        background-color: red !important; /* පේනවද බලන්න පාටක් දැම්මා */
+        display: flex !important;
+        overflow: visible !important;
+        border: 1px solid yellow !important;
+         z-index: 100; /* Ensure it's visible */
+    }
+     .app-sidebar.open .sidebar-header * { /* Header එක ඇතුළේ තියෙන දේවල් */
+          opacity: 1 !important;
+          display: block !important; /* Force display */
+           color: white !important; /* Force color */
+     }
+
+    .app-sidebar.open .sidebar-nav {
+        height: auto !important;
+        min-height: 100px !important; /* Force some height */
+        flex-grow: 1 !important;
+        display: block !important;
+        background-color: blue !important; /* පේනවද බලන්න පාටක් දැම්මා */
+        overflow: visible !important;
+         z-index: 100;
+    }
+     .app-sidebar.open .sidebar-nav ul {
+         display: block !important;
+         background-color: lightgreen !important; /* පේනවද බලන්න පාටක් දැම්මා */
+         min-height: 50px !important;
+         opacity: 1 !important;
+          z-index: 100;
+     }
+      .app-sidebar.open .sidebar-nav ul li a span {
+          color: black !important; /* Force link text color */
+          opacity: 1 !important;
+      }
+}
+/* END OF TEMPORARY DEBUGGING STYLES */
+}

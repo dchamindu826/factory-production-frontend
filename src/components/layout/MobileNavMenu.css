@@ -1,0 +1,87 @@
+/* src/components/layout/MobileNavMenu.css */
+
+.mobile-nav-menu {
+    display: none; /* <<<--- Default එකෙන් හංගලා තියෙන්නේ */
+    position: absolute;
+    top: 65px; /* Navbar එකේ උස (height) */
+    left: 0;
+    right: 0;
+    background-color: #34495e; /* Dark background, similar to sidebar */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1005; /* Navbar එකට යටින්, content එකට උඩින් */
+    max-height: calc(100vh - 65px); /* Screen එකේ ඉතුරු උස */
+    overflow-y: auto; /* Links වැඩි නම් scroll වෙන්න */
+    border-top: 1px solid #4a627a;
+  }
+  
+  /* Menu එක open වුණාම පෙන්නන්න (JS වලින් 'open' class එක add වෙනවා) */
+  .mobile-nav-menu.open {
+    display: block;
+  }
+  
+  .mobile-nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0; /* Menu එක ඇතුළේ උඩයි යටයි ඉඩ */
+  }
+  
+  .mobile-nav-menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px; /* Links වල padding */
+    color: #ecf0f1; /* Text color */
+    text-decoration: none;
+    font-size: 1em;
+    border-bottom: 1px solid #4a627a; /* Links අතර ඉරක් */
+    transition: background-color 0.2s ease;
+  }
+  
+  .mobile-nav-menu ul li a:hover {
+    background-color: #4a627a;
+  }
+  
+  .mobile-nav-menu ul li a .nav-icon {
+    margin-right: 15px;
+    font-size: 1.1em;
+    width: 20px; /* Icon width */
+    text-align: center;
+  }
+  
+  /* Active link style for mobile menu */
+  .mobile-nav-menu ul li a.active {
+    background-color: #3498db;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  /* Divider style (optional) */
+  .mobile-nav-menu ul li.nav-menu-divider {
+    height: 1px;
+    background-color: #4a627a;
+    margin: 10px 20px;
+    padding: 0;
+    border-bottom: none;
+  }
+  
+  /* Hide mobile menu on larger screens */
+  @media (min-width: 769px) {
+    .mobile-nav-menu {
+      display: none !important; /* Desktop වලදී කවදාවත් පෙන්නන්න එපා */
+    }
+
+    .mobile-header-left {
+      display: flex;
+      align-items: center;
+    }
+    
+    .mobile-hamburger-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px; /* Hamburger icon size */
+      cursor: pointer;
+      padding: 0 10px 0 0; /* Right padding to space from brand */
+      margin-right: 5px; /* Space before brand if brand is not very close */
+    }
+    
+  }

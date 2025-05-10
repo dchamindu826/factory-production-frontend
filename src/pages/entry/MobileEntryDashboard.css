@@ -1,0 +1,64 @@
+/* src/pages/entry/MobileEntryDashboard.css */
+.mobile-entry-dashboard-container {
+  padding: 0; /* Remove padding if content area has its own */
+}
+
+.form-selector-tabs {
+  display: flex;
+  overflow-x: auto; /* Allow horizontal scrolling for tabs if many */
+  background-color: #f0f0f0;
+  padding: 8px 5px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px; /* Space before the form */
+  position: sticky; /* Make tabs sticky at the top of the content area */
+  top: 55px; /* Height of the MobileEntryHeader */
+  z-index: 990; /* Below header, above content */
+}
+
+.tab-button {
+  padding: 10px 15px;
+  margin-right: 8px;
+  border: none;
+  background-color: transparent;
+  color: #555;
+  font-weight: 500;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  white-space: nowrap;
+  font-size: 0.9em;
+}
+
+.tab-button:last-child {
+  margin-right: 0;
+}
+
+.tab-button:hover {
+  background-color: #e0e0e0;
+}
+
+.tab-button.active {
+  background-color: #fff; /* Active tab background (matches form container) */
+  color: #3498db; /* Active tab text color */
+  border-bottom: 2px solid #3498db; /* Indicator for active tab */
+  font-weight: bold;
+}
+
+.tab-button:disabled {
+  color: #aaa;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+.active-form-area {
+  padding: 0 0px; /* Padding for the form area itself */
+}
+
+.mobile-entry-form h4 {
+    font-size: 1.15em;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}

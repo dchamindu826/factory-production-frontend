@@ -1,0 +1,98 @@
+/* src/pages/entry/EntryForm.css */
+/* Common styles for mobile-friendly data entry forms */
+
+.entry-form-page {
+    padding: 10px 0; /* Add some padding top/bottom within the content area */
+  }
+  
+  .entry-form-page h3 {
+    font-size: 1.3em; /* Heading for the form section */
+    color: #343a40;
+    margin-bottom: 8px;
+    text-align: center; /* Center the form title */
+  }
+  
+  .entry-form-page p { /* Introductory paragraph */
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Reusing .form-container from global styles but can add specific overrides */
+  .mobile-entry-form { /* Specific class for forms within mobile entry pages */
+    background-color: #fff;
+    padding: 20px 15px; /* Padding inside the form card */
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); /* Softer shadow */
+    margin-top: 10px; /* Space from the page title/description */
+  }
+  
+  .mobile-entry-form h4 { /* Title inside the form card */
+      font-size: 1.1em;
+      color: #333;
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: left;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+  }
+  
+  /* Ensure form elements stack well and are easily tappable */
+  .mobile-entry-form .form-group label {
+    font-size: 0.85em;
+    margin-bottom: 6px;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .mobile-entry-form .form-group input[type="text"],
+  .mobile-entry-form .form-group input[type="number"],
+  .mobile-entry-form .form-group input[type="date"],
+  .mobile-entry-form .form-group select {
+    padding: 12px 10px; /* Good padding for tapping */
+    font-size: 1em; /* Ensure readable font size */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box;
+  }
+  
+  .mobile-entry-form .form-group input:focus,
+  .mobile-entry-form .form-group select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  .mobile-entry-form .form-actions {
+    margin-top: 25px;
+    padding-top: 0; /* Remove extra padding if already spaced by form-group */
+    border-top: none; /* Remove border if not needed */
+  }
+  
+  .mobile-entry-form .submit-button {
+    background-color: #27ae60; /* Green submit */
+    padding: 12px;
+    font-size: 1.05em;
+    width: 100%; /* Make button full width */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .mobile-entry-form .submit-button:hover {
+    background-color: #229954;
+  }
+  .mobile-entry-form .submit-button:disabled {
+    background-color: #a3e9a4;
+    cursor: not-allowed;
+  }
+  
+  /* Ensure alerts are visible and styled within mobile forms */
+  .mobile-entry-form .alert {
+      font-size: 0.9em;
+      margin-bottom: 15px;
+      padding: 8px 12px;
+  }
+  

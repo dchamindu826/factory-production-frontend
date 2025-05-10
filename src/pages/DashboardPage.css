@@ -1,0 +1,58 @@
+/* src/pages/DashboardPage.css */
+.summary-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-actions {
+    margin-bottom: 30px;
+    /* .card class already provides base styling */
+  }
+  
+  .dashboard-actions h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .action-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .dashboard-charts-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .chart-placeholder {
+    /* .card class already provides base styling */
+    padding: 20px;
+    text-align: center;
+    color: #7f8c8d;
+    min-height: 200px; /* Example height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .chart-placeholder h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+  }

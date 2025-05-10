@@ -1,0 +1,60 @@
+/* src/components/dashboard/SummaryCard.css */
+.summary-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icon and content */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-left: 5px solid #3498db; /* Accent color border */
+  }
+  
+  .summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-icon {
+    font-size: 2.5em; /* Adjust size as needed */
+    color: #3498db; /* Icon color */
+    padding: 10px;
+    background-color: #eaf2f8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Fixed width */
+    height: 60px; /* Fixed height */
+  }
+  
+  .card-content h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #555;
+  }
+  
+  .card-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  .card-unit {
+   font-size: 0.6em;
+   color: #7f8c8d;
+   margin-left: 5px;
+  }
+  
+  .card-details-link {
+    font-size: 0.9em;
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .card-details-link:hover {
+    text-decoration: underline;
+  }

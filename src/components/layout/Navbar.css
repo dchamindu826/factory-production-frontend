@@ -1,0 +1,121 @@
+/* src/components/layout/Navbar.css */
+.app-navbar {
+    background-color: #ffffff; /* සුදු පසුබිමක් */
+    height: 65px; /* Navbar උස */
+    padding: 0 25px; /* දෙපැත්තෙන් ඉඩ */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* කොටස් තුන අතර ඉඩ බෙදීම */
+    border-bottom: 1px solid #e0e0e0; /* යටින් සියුම් ඉරක් */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* පොඩි shadow එකක් */
+    position: sticky; /* Scroll කරද්දී උඩින්ම රැඳෙන්න (Layout එකේ main-content එක scroll වෙනවා නම්) */
+    top: 0;
+    z-index: 999; /* අනිත් දේවල් වලට උඩින් තියෙන්න */
+  }
+  
+  /* වම් පැත්ත (Toggle Button + Brand) */
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar-toggle-button { /* මේක කලින් index.css එකේත් තිබ්බා, මෙතනට ගත්තත් කමක් නෑ */
+    display: none; /* ලොකු තිර වලදී හංගලා */
+    background: none;
+    border: none;
+    font-size: 24px; /* Icon එකේ ප්‍රමාණය */
+    color: #333;
+    cursor: pointer;
+    margin-right: 15px; /* Brand එකයි toggle button එකයි අතර ඉඩ */
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .navbar-logo {
+    height: 35px; /* Logo එකේ උස */
+    margin-right: 10px;
+  }
+  
+  .brand-text {
+    font-size: 1.4em; /* නමේ අකුරු ප්‍රමාණය */
+    font-weight: 700; /* අකුරු තදකම */
+    color: #2c3e50; /* නමේ පාට */
+  }
+  
+
+  .navbar-title { /* මේ class එක App.jsx එකේ h1 එකට දාන්න අවශ්‍ය නෑ, මෙතනම define කරනවා නම් */
+    font-size: 1.3em;
+    color: #34495e;
+    font-weight: 600;
+  }
+  
+  
+  /* දකුණු පැත්ත (User Profile, Notifications) */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* අනිත් item වලින් ඉඩ තියන්න */
+  }
+  
+  .user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; /* රවුම් avatar එකක් */
+    margin-right: 10px;
+    object-fit: cover; /* Image එක කොටුවට fill වෙන්න */
+  }
+  
+  .user-name {
+    font-size: 0.95em;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .notification-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #555;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  /* Mobile Responsive Styles (Hamburger button එක පෙන්නන්න) */
+  @media (max-width: 768px) {
+    .app-navbar {
+      padding: 0 15px; /* පොඩි තිර වලදී padding අඩු කිරීම */
+    }
+  
+    .sidebar-toggle-button {
+      display: block; /* පොඩි තිර වලදී toggle button එක පෙන්නන්න */
+    }
+  
+    .brand-text {
+      font-size: 1.2em; /* පොඩි තිර වලදී brand නම පොඩි කිරීම */
+    }
+    .logout-button {
+      background-color: #e74c3c; /* Red color */
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      margin-left: 15px; /* Username එකෙන් ඉඩක් */
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background-color 0.2s ease;
+    }
+    
+    .logout-button:hover {
+      background-color: #c0392b; /* Darker red */
+    }
+
+  }

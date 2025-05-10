@@ -1,0 +1,155 @@
+/* src/components/layout/MobileEntryLayout.css */
+.mobile-entry-app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #eef2f5; /* Slightly different background */
+  }
+  
+  .mobile-entry-header {
+    background-color: #3498db; /* Primary color for header */
+    color: white;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 55px; /* Fixed height for mobile header */
+  }
+  
+  .mobile-header-brand {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .mobile-header-user {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+  }
+  
+  .mobile-user-greeting {
+    margin-right: 10px;
+    font-weight: 500;
+  }
+  
+  .mobile-logout-button {
+    background-color: #c0392b; /* Red for logout */
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 500;
+  }
+  .mobile-logout-button:hover {
+    background-color: #a93226;
+  }
+  
+  .mobile-entry-content-area {
+    flex-grow: 1;
+    padding: 15px;
+    width: 100%;
+    max-width: 600px; /* Max width for forms on slightly larger mobile screens */
+    margin: 0 auto; /* Center content */
+  }
+  
+  /* Optional Bottom Navigation Styles */
+  /*
+  .mobile-bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    z-index: 1000;
+  }
+  
+  .mobile-bottom-nav a {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px 0;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+  
+  .mobile-bottom-nav a.active {
+    color: #2980b9;
+    font-weight: bold;
+  }
+  */
+  
+  /* Styles for forms within this layout */
+  .mobile-entry-content-area .form-container {
+    background-color: #fff;
+    padding: 20px 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-top: 0; /* Remove top margin if header provides enough space */
+  }
+  
+  .mobile-entry-content-area .form-container h2,
+  .mobile-entry-content-area .form-container h3 { /* Target h3 if used in entry forms */
+    font-size: 1.25em;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .mobile-entry-content-area .form-group label {
+    font-size: 0.9em;
+    margin-bottom: 6px;
+    color: #555;
+  }
+  
+  .mobile-entry-content-area .form-group input,
+  .mobile-entry-content-area .form-group select {
+    padding: 12px; /* Good tap size */
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .mobile-entry-content-area .form-group input:focus,
+  .mobile-entry-content-area .form-group select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  .mobile-entry-content-area .form-actions {
+    margin-top: 20px;
+    padding-top: 0;
+    border-top: none;
+  }
+  
+  .mobile-entry-content-area .submit-button {
+    background-color: #27ae60; /* Green submit */
+    padding: 12px;
+    font-size: 1.05em;
+    width: 100%;
+  }
+  .mobile-entry-content-area .submit-button:hover {
+    background-color: #229954;
+  }
+  
+  .mobile-entry-content-area .alert {
+      font-size: 0.9em;
+  }
+  
+  
+ 

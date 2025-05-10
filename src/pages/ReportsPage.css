@@ -1,0 +1,123 @@
+/* src/pages/ReportsPage.css */
+.report-filters {
+    /* Uses .card style from index.css */
+    margin-bottom: 30px;
+    padding: 25px;
+  }
+  
+  .date-range-fields {
+    display: flex;
+    gap: 20px; /* Spacing between date fields */
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .date-range-fields .form-group {
+    flex: 1; /* Make date fields take equal space */
+    margin-bottom: 0; /* Remove default margin from FormField */
+  }
+  
+  .report-actions {
+    margin-top: 20px;
+    text-align: left;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+  }
+  
+  .report-actions .action-button {
+    /* Uses global .action-button style from index.css */
+    margin-right: 10px;
+  }
+  .report-actions .action-button.export-button {
+      background-color: #17a2b8; /* Bootstrap info color for export */
+  }
+  .report-actions .action-button.export-button:hover {
+      background-color: #138496;
+  }
+  
+  
+  .loading-message {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #555;
+  }
+  
+  .report-display-area {
+    /* Uses .card style from index.css */
+    margin-top: 20px;
+    padding: 25px;
+  }
+  
+  .report-display-area h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  .date-range-info {
+      font-size: 0.9em;
+      color: #777;
+      margin-bottom: 15px;
+  }
+  
+  .report-table-container {
+    overflow-x: auto; /* Allow horizontal scrolling for wide tables */
+    max-width: 100%;
+  }
+  
+  .report-display-area table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9em;
+  }
+  
+  .report-display-area th,
+  .report-display-area td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  .report-display-area th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    color: #333;
+    position: sticky; /* Make headers sticky if table scrolls vertically within a container */
+    top: 0;
+    z-index: 1;
+  }
+  
+  .report-display-area tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .report-display-area tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .no-data-message {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .date-range-fields {
+      flex-direction: column; /* Stack date fields on mobile */
+      gap: 15px;
+    }
+    .report-actions .action-button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      margin-right: 0;
+    }
+    .report-display-area th,
+    .report-display-area td {
+      padding: 8px;
+      font-size: 0.85em;
+    }
+  }
